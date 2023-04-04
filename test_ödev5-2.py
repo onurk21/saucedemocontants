@@ -44,18 +44,18 @@ def save_screenshot(driver, name):
 #boş veri girilerek test yapar
 def test_kullanici_adi_ve_sifre_bos_iken_Hata_donmesi(driver):
     
-    username = driver.find_element(By.ID, U_ID)
-    password = driver.find_element(By.ID, P_ID)
-    login_button = driver.find_element(By.ID, L_BTN_ID)
+    U_ID = driver.find_element(By.ID, U_ID)
+    P_ID = driver.find_element(By.ID, P_ID)
+    L_BTN_ID = driver.find_element(By.ID, L_BTN_ID)
     
 
-    username.send_keys("")
-    password.send_keys("")
+    U_ID.send_keys("")
+    P_ID.send_keys("")
     
-    login_button.click()
+    L_BTN_ID.click()
     error_message_container = driver.find_element(By.CLASS_NAME, ERROR_M)
 
-    expected_message = BLANK_USERNAME_MESSAGE
+    expected_message = BLANK_U_M 
     current_message = error_message_container.text
     status = expected_message == current_message
 
@@ -64,19 +64,19 @@ def test_kullanici_adi_ve_sifre_bos_iken_Hata_donmesi(driver):
 #şifre boşken gelen hatayı görüntüler
 def test_sifre_bos_iken_Hata_donmesi(driver):
     driver.refresh()
-    username = driver.find_element(By.ID, U_ID)
-    password = driver.find_element(By.ID, P_ID)
-    login_button = driver.find_element(By.ID, L_BTN_ID)
+    U_ID = driver.find_element(By.ID, U_ID)
+    P_ID = driver.find_element(By.ID, P_ID)
+    L_BTN_ID = driver.find_element(By.ID, L_BTN_ID)
     
 
-    username.send_keys("deneme")
-    password.send_keys("")
+    U_ID.send_keys("deneme")
+    P_ID.send_keys("")
     
 
-    login_button.click()
+    L_BTN_ID.click()
     error_message_container = driver.find_element(By.CLASS_NAME, ERROR_M)
 
-    expected_message = BLANK_PASSWORD_MESSAGE
+    expected_message = BLANK_P_M
     current_message = error_message_container.text
     status = expected_message == current_message
 
@@ -85,19 +85,19 @@ def test_sifre_bos_iken_Hata_donmesi(driver):
 #kilitli kullanıcadaki hatayı gösterir
 def test_kilitli_kullanici_girildiginde_Hata_donmesi(driver):
     driver.refresh()
-    username = driver.find_element(By.ID, U_ID)
-    password = driver.find_element(By.ID, P_ID)
-    login_button = driver.find_element(By.ID, L_BTN_ID)
+    U_ID = driver.find_element(By.ID, U_ID)
+    P_ID = driver.find_element(By.ID, P_ID)
+    L_BTN_ID = driver.find_element(By.ID, L_BTN_ID)
     
 
-    username.send_keys(LOCKEDUSER)
-    password.send_keys(PS)
+    U_ID.send_keys(LOCKEDUSER)
+    P_ID.send_keys(PS)
     
 
-    login_button.click()
+    L_BTN_ID.click()
     error_message_container = driver.find_element(By.CLASS_NAME, ERROR_M)
 
-    expected_message = LOCKED_OUT_USER_MESSAGE
+    expected_message = LOCKED_O_US_M
     current_message = error_message_container.text
     status = expected_message == current_message
 
@@ -108,16 +108,16 @@ def test_kilitli_kullanici_girildiginde_Hata_donmesi(driver):
 def test_X_iconuna_tiklama(driver):
      driver.refresh()
 
-     username = driver.find_element(By.ID, U_ID)
-     password = driver.find_element(By.ID, P_ID)
-     login_button = driver.find_element(By.ID, L_BTN_ID)
+     U_ID = driver.find_element(By.ID, U_ID)
+     P_ID = driver.find_element(By.ID, P_ID)
+     L_BTN_ID = driver.find_element(By.ID, L_BTN_ID)
 
 
-     username.send_keys("")
-     password.send_keys("")
+     U_ID.send_keys("")
+     P_ID.send_keys("")
      sleep(1)
 
-     login_button.click()
+     L_BTN_ID.click()
      error_message_container = driver.find_element(
         By.CLASS_NAME, ERROR_M)
      error_button = driver.find_element(By.CLASS_NAME, ERROR_B)
@@ -133,16 +133,16 @@ def test_X_iconuna_tiklama(driver):
 def test_standart_kullanici_girildiginde_inventoryhtml_donmesi(driver):
     driver.refresh()
     logout(driver)
-    username = driver.find_element(By.ID, U_ID)
-    password = driver.find_element(By.ID, P_ID)
-    login_button = driver.find_element(By.ID, L_BTN_ID)
+    U_ID = driver.find_element(By.ID, U_ID)
+    P_ID = driver.find_element(By.ID, P_ID)
+    L_BTN_ID = driver.find_element(By.ID, L_BTN_ID)
     
 
-    username.send_keys(S_U)
-    password.send_keys(PS)
+    U_ID.send_keys(S_U)
+    P_ID.send_keys(PS)
     
 
-    login_button.click()
+    L_BTN_ID.click()
     
 
     current_url = driver.current_url
@@ -154,16 +154,16 @@ def test_standart_kullanici_girildiginde_inventoryhtml_donmesi(driver):
 #6 ürün listeleniyormu onu kontrol eder.
 def test_6_urun_listesi(driver):
      logout(driver)
-     username = driver.find_element(By.ID, U_ID)
-     password = driver.find_element(By.ID, P_ID)
-     login_button = driver.find_element(By.ID, L_BTN_ID)
+     U_ID = driver.find_element(By.ID, U_ID)
+     P_ID = driver.find_element(By.ID, P_ID)
+     L_BTN_ID = driver.find_element(By.ID, L_BTN_ID)
      sleep(1)
 
-     username.send_keys(S_U)
-     password.send_keys(PS)
+     U_ID.send_keys(S_U)
+     P_ID.send_keys(PS)
      sleep(1)
 
-     login_button.click()
+     L_BTN_ID.click()
      sleep(1)
 
      items = driver.find_elements(By.CLASS_NAME, "inventory_item")
@@ -177,16 +177,16 @@ def test_6_urun_listesi(driver):
 def test_urun_fiyati_dogrulama(driver, item_name, item_price):
      driver.refresh()
      logout(driver)
-     username = driver.find_element(By.ID, U_ID)
-     password = driver.find_element(By.ID, P_ID)
-     login_button = driver.find_element(By.ID, L_BTN_ID)
+     U_ID = driver.find_element(By.ID, U_ID)
+     P_ID = driver.find_element(By.ID, P_ID)
+     L_BTN_ID = driver.find_element(By.ID, L_BTN_ID)
     
 
-     username.send_keys(S_U)
-     password.send_keys(PS)
+     U_ID.send_keys(S_U)
+     P_ID.send_keys(PS)
     
 
-     login_button.click()
+     L_BTN_ID.click()
     
 
      item = driver.find_element(By.XPATH, f"//div[text()='{item_name}']/../../..//div[@class='pricebar']/div")
@@ -200,13 +200,13 @@ def test_urun_fiyati_dogrulama(driver, item_name, item_price):
 def test_urun_sepete_ekleme(driver):
     driver.refresh()
     logout(driver)
-    username = driver.find_element(By.ID, U_ID)
-    password = driver.find_element(By.ID, P_ID)
-    login_button = driver.find_element(By.ID, L_BTN_ID)
+    U_ID = driver.find_element(By.ID, U_ID)
+    P_ID = driver.find_element(By.ID, P_ID)
+    L_BTN_ID = driver.find_element(By.ID, L_BTN_ID)
 
-    username.send_keys(S_U)
-    password.send_keys(PS)
-    login_button.click()
+    U_ID.send_keys(S_U)
+    P_ID.send_keys(PS)
+    L_BTN_ID.click()
 
     item_name = "Sauce Labs Backpack"
     item = driver.find_element(By.XPATH, f"//div[@class='inventory_item_name'][text()='{item_name}']/ancestor::div[@class='inventory_item']//button")
@@ -220,13 +220,13 @@ def test_urun_sepete_ekleme(driver):
 def test_urun_siralamasi(driver):
     driver.refresh()
     logout(driver)
-    username = driver.find_element(By.ID, U_ID)
-    password = driver.find_element(By.ID, P_ID)
-    login_button = driver.find_element(By.ID, L_BTN_ID)
+    U_ID = driver.find_element(By.ID, U_ID)
+    P_ID = driver.find_element(By.ID, P_ID)
+    L_BTN_ID = driver.find_element(By.ID, L_BTN_ID)
 
-    username.send_keys(S_U)
-    password.send_keys(PS)
-    login_button.click()
+    U_ID.send_keys(S_U)
+    P_ID.send_keys(PS)
+    L_BTN_ID.click()
 
     sorting_dropdown = driver.find_element(By.CLASS_NAME, P_S_C)
     sorting_options = sorting_dropdown.find_elements(By.TAG_NAME, "option")
@@ -247,13 +247,13 @@ def test_urun_siralamasi(driver):
 def test_geri_tusu(driver):
     driver.refresh()
     logout(driver)
-    username = driver.find_element(By.ID, U_ID)
-    password = driver.find_element(By.ID, P_ID)
-    login_button = driver.find_element(By.ID, L_BTN_ID)
+    U_ID = driver.find_element(By.ID, U_ID)
+    P_ID = driver.find_element(By.ID, P_ID)
+    L_BTN_ID = driver.find_element(By.ID, L_BTN_ID)
 
-    username.send_keys(S_U)
-    password.send_keys(PS)
-    login_button.click()
+    U_ID.send_keys(S_U)
+    P_ID.send_keys(PS)
+    L_BTN_ID.click()
 
     item_name = "Sauce Labs Bike Light"
     item = driver.find_element(By.XPATH, f"//div[text()='{item_name}']/../..//a")
@@ -273,13 +273,13 @@ def test_geri_tusu(driver):
 def test_urun_filtreleme(driver):
     driver.refresh()
     logout(driver)
-    username = driver.find_element(By.ID, U_ID)
-    password = driver.find_element(By.ID, P_ID)
-    login_button = driver.find_element(By.ID, L_BTN_ID)
+    U_ID = driver.find_element(By.ID, U_ID)
+    P_ID = driver.find_element(By.ID, P_ID)
+    L_BTN_ID = driver.find_element(By.ID, L_BTN_ID)
 
-    username.send_keys(S_U)
-    password.send_keys(PS)
-    login_button.click()
+    U_ID.send_keys(S_U)
+    P_ID.send_keys(PS)
+    L_BTN_ID.click()
 
     filter_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, P_S_C)))
     sleep(2)
